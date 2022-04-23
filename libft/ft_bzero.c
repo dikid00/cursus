@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 20:50:09 by dikid00           #+#    #+#             */
-/*   Updated: 2022/04/19 20:56:11 by dikid00          ###   ########.fr       */
+/*   Created: 2022/04/19 20:49:37 by dikid00           #+#    #+#             */
+/*   Updated: 2022/04/19 20:56:17 by dikid00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	if (c == 0)
-		return (1);
-	else
-		return (c);
+	unsigned char	*arr;
+	long long		i;
+
+	arr = s;
+	i = 0;
+	while (i++ < (long long)n)
+		*(arr++) = 0;
 }
 /*
 DESCRIPTION
-     The isascii() function tests for an ASCII character, which is any character between 0 and octal 0177 inclusive.
+     The bzero() function writes n zeroed bytes to the string s.  If n is zero, bzero() does nothing.
 
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	if (c == 0)
-		return (1);// NULL char returns 1
-	else
-		return (c);// returns ascii code
+	unsigned char	*arr;// type 'void' is not assignable
+	size_t			i;
+
+	arr = s;// takes same address
+	i = 0;
+	while (i++ < n)// number of bytes
+		*(arr++) = 0;// byte assignation
 }
 */

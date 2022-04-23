@@ -1,40 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 20:50:09 by dikid00           #+#    #+#             */
-/*   Updated: 2022/04/19 20:56:11 by dikid00          ###   ########.fr       */
+/*   Created: 2022/04/19 20:51:16 by dikid00           #+#    #+#             */
+/*   Updated: 2022/04/19 20:55:57 by dikid00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	if (c == 0)
-		return (1);
-	else
-		return (c);
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
 /*
-DESCRIPTION
-     The isascii() function tests for an ASCII character, which is any character between 0 and octal 0177 inclusive.
+Parameters
+		lst: The beginning of the list.
+
+Return value
+		The length of the list
+
+External functs.
+		None
+
+Description
+		Counts the number of nodes in a list.
+
 
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	if (c == 0)
-		return (1);// NULL char returns 1
-	else
-		return (c);// returns ascii code
+	int	i;
+
+	i = 0;
+	while (lst)//			until next is NULL
+	{
+		lst = lst->next;//	passes from node to node
+		i++;//				counts
+	}
+	return (i);//			returns count
 }
 */

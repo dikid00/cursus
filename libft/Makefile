@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mabarbas <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/25 13:33:44 by mabarbas          #+#    #+#              #
-#    Updated: 2022/02/25 19:34:03 by mabarbas         ###   ########.fr        #
+#    Created: 2022/04/19 20:54:33 by dikid00           #+#    #+#              #
+#    Updated: 2022/04/19 20:55:19 by dikid00          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 HEADER		= libft.h
-FLAGS		= -Wall -Werror -Wextra
+FLAGS		= -Wall -Werror -Wextra -g
 RM			= rm -f
 
 SRCS		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
@@ -22,7 +22,8 @@ SRCS		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
 			  ft_substr.c ft_strjoin.c ft_strtrim.c ft_itoa.c \
 			  ft_strmapi.c ft_split.c ft_bzero.c ft_striteri.c \
 			  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			  ft_memset.c ft_memcpy.c ft_memmove.c ft_memcgr.c
+			  ft_memset.c ft_memcpy.c ft_memmove.c ft_memchr.c \
+			  ft_calloc.c ft_strdup.c
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -34,15 +35,29 @@ BONUS_O		= ${BONUS_S:.c=.o}
 
 all:		${NAME}
 
-${NAME}:	${OBJS} ${BONUS_O}
-			
+%.o: %.c
+			@gcc $(FLAGS) $(INCLUDES) -c -o $@ $<
+
+$(NAME):	${OBJS} ${BONUS_O}
+			@ar -rcs ${NAME} ${OBJS} ${BONUS_O}
+
+bonus:      $(NAME) $(BONUS_O)
+			@ar -rcs $(NAME) $(BONUS_O)
+
 .c.o:
-			gcc ${FLAGS} -I${HEADER} -c $< -o ${<:.c=.o}
+			@gcc ${FLAGS} -I${HEADER} -c $< -o ${<:.c=.o}
+
+norm:
+			norminette -CheckForbiddenSourceHeader *
+
 clean:
 			${RM} ${OBJS} ${BONUS_O} 
 
 fclean:		clean
 			${RM} ${NAME}
 
-re:
+re:			fclean all
 
+rebonus:	fclean bonus
+
+.PHONY:     all clean fclean re bonus rebonus

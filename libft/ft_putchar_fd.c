@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 20:50:09 by dikid00           #+#    #+#             */
-/*   Updated: 2022/04/19 20:56:11 by dikid00          ###   ########.fr       */
+/*   Created: 2022/04/19 20:51:53 by dikid00           #+#    #+#             */
+/*   Updated: 2022/04/19 20:55:49 by dikid00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	if (c == 0)
-		return (1);
-	else
-		return (c);
+	write(fd, &c, 1);
 }
 /*
-DESCRIPTION
-     The isascii() function tests for an ASCII character, which is any character between 0 and octal 0177 inclusive.
+Parameters
+		c: The character to output.
+		fd: The file descriptor on which to write.
+
+Return value
+		None
+
+External functs.
+		write
+
+Description
+		Outputs the character ’c’ to the given file
+	descriptor.
+
 
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c < 0 || c > 127)
-		return (0);
-	if (c == 0)
-		return (1);// NULL char returns 1
-	else
-		return (c);// returns ascii code
+	write(fd, &c, 1);//			file descriptor number identifies an open file in a computer's operating system, puts the char
 }
 */
