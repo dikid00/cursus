@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+         #
+#    By: mabarbas <mabarbas@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/19 20:54:33 by dikid00           #+#    #+#              #
-#    Updated: 2022/04/19 20:55:19 by dikid00          ###   ########.fr        #
+#    Created: 2022/04/23 15:55:51 by mabarbas          #+#    #+#              #
+#    Updated: 2022/04/23 15:56:19 by mabarbas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ bonus:      $(NAME) $(BONUS_O)
 			@gcc ${FLAGS} -I${HEADER} -c $< -o ${<:.c=.o}
 
 norm:
-			norminette -CheckForbiddenSourceHeader *
+			norminette *
 
 clean:
 			${RM} ${OBJS} ${BONUS_O} 

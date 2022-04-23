@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabarbas <mabarbas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 20:49:22 by dikid00           #+#    #+#             */
-/*   Updated: 2022/04/19 20:56:19 by dikid00          ###   ########.fr       */
+/*   Created: 2022/04/23 15:48:32 by mabarbas          #+#    #+#             */
+/*   Updated: 2022/04/23 15:48:35 by mabarbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			neg;
 	int			i;

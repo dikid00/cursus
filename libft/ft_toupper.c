@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabarbas <mabarbas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 20:54:10 by dikid00           #+#    #+#             */
-/*   Updated: 2022/04/19 20:55:24 by dikid00          ###   ########.fr       */
+/*   Created: 2022/04/23 15:55:16 by mabarbas          #+#    #+#             */
+/*   Updated: 2022/04/23 15:55:17 by mabarbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	int	r;
 

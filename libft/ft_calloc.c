@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabarbas <mabarbas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 20:49:51 by dikid00           #+#    #+#             */
-/*   Updated: 2022/04/19 20:56:16 by dikid00          ###   ########.fr       */
+/*   Created: 2022/04/23 15:49:13 by mabarbas          #+#    #+#             */
+/*   Updated: 2022/04/23 15:49:15 by mabarbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)
