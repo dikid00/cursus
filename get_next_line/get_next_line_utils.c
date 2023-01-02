@@ -3,68 +3,116 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danierod <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 14:41:29 by danierod          #+#    #+#             */
-/*   Updated: 2022/08/24 14:41:50 by danierod         ###   ########.fr       */
+/*   Created: 2022/12/07 16:31:44 by dikid00           #+#    #+#             */
+/*   Updated: 2022/12/08 15:13:10 by dikid00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	getlen(char *str)
+char	*ft_strchr(const char *str, int c)
 {
 	int	i;
 
 	i = -1;
 	if (!str)
-		return (0);
+		return (NULL);
+	if (!c)
+		return ((char *)&str[ft_strlen((char *)str)]);
 	while (str[++i])
-		if (str[i] == 10)
-			return (i + 1);
-	return (i);
+		if (str[i] == c)
+			return ((char *)&str[i]);
+	return (NULL);
 }
 
-char	*newline(char *buf, char *tmp)
+size_t	ft_strlen(char *str)
+{
+	size_t	r;
+
+	r = 0;
+	if (!str)
+		return (0);
+	while (str[r])
+		r++;
+	return (r);
+}
+
+char	*ft_strjoin(char *sttc, char *buff)
+{
+	char	*r;
+	int		i;
+	int		j;
+
+	if (!sttc)
+	{
+		sttc = malloc(sizeof(char) * 1);
+		sttc[0] = 0;
+	}
+	if (!buff)
+		return (NULL);
+	r = malloc(ft_strlen(sttc) + ft_strlen(buff) + 1);
+	if (!r)
+		return (NULL);
+	i = -1;
+	while (sttc[++i])
+		r[i] = sttc[i];
+	j = -1;
+	while (buff[++j])
+		r[i + j] = buff[j];
+	r[i + j] = 0;
+	free (sttc);
+	return (r);
+}
+
+char	*ft_gl(char *sttc)
 {
 	int		i;
-	char	*nl;
+	char	*s;
 
+	if (!sttc[0])
+		return (NULL);
 	i = 0;
-	nl = malloc(getlen(buf) + getlen(tmp) + 1);
-	while (tmp && tmp[i])
-	{
-		nl[i] = tmp[i];
+	while (sttc[i] && sttc[i] != '\n')
 		i++;
-	}
-	while (*buf)
-	{
-		nl[i] = *buf++;
-		if (nl[i++] == 10)
-			break ;
-	}
-	nl[i] = '\0';
-	if (tmp)
-		free (tmp);
-	return (nl);
+	if (!sttc[i])
+		s = malloc(sizeof(char) * (i + 1));
+	else
+		s = malloc(sizeof(char) * (i + 2));
+	if (!s)
+		return (NULL);
+	i = -1;
+	while (sttc[++i] && sttc[i] != '\n')
+		s[i] = sttc[i];
+	if (sttc[i] == '\n')
+		s[i++] = '\n';
+	s[i] = 0;
+	return (s);
 }
 
-int	checknl(char *buf)
+char	*ft_new_sttc(char *sttc)
 {
-	int	i;
-	int	j;
-	int	check;
+	int		i;
+	int		j;
+	char	*s;
 
 	i = 0;
-	j = 0;
-	check = 0;
-	while (buf[i] != '\0')
+	while (sttc[i] && sttc[i] != '\n')
+		i++;
+	if (!sttc[i])
 	{
-		if (check == 0 && buf[i] == 10)
-			check = 1;
-		else if (check == 1)
-			buf[j++] = buf[i];
-		buf[i++] = 0;
+		free(sttc);
+		return (NULL);
 	}
-	return (check);
+	s = malloc(sizeof(char) * (ft_strlen(sttc) - i + 1));
+	if (!s)
+		return (NULL);
+	i++;
+	j = 0;
+	while (sttc[i])
+		s[j++] = sttc[i++];
+	s[j] = 0;
+	free(sttc);
+	return (s);
 }

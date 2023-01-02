@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.h                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danierod <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 14:41:13 by danierod          #+#    #+#             */
-/*   Updated: 2022/08/24 14:37:49 by danierod         ###   ########.fr       */
+/*   Created: 2022/12/05 17:44:34 by dikid00           #+#    #+#             */
+/*   Updated: 2022/12/05 17:52:53 by dikid00          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
-
-# include <limits.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
-int		getlen(char *str);
-int		checknl(char *buf);
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
+
 char	*get_next_line(int fd);
-char	*newline(char *buf, char *tmp);
-char	*clear(char *buf);
+char	*read_into(int fd, char *sttc);
+char	*ft_strchr(const char *str, int c);
+size_t	ft_strlen(char *str);
+char	*ft_strjoin(char *sttc, char *buff);
+char	*ft_gl(char *sttc);
+char	*ft_new_sttc(char *sttc);
 
 #endif
