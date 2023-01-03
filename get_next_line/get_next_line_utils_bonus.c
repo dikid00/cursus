@@ -6,11 +6,11 @@
 /*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:46:49 by dikid00           #+#    #+#             */
-/*   Updated: 2022/12/07 17:13:37 by dikid00          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:38:19 by mabarbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(const char *str, int c)
 {

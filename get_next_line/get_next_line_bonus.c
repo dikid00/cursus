@@ -6,11 +6,11 @@
 /*   By: dikid00 <dikid00@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 17:47:02 by dikid00           #+#    #+#             */
-/*   Updated: 2022/12/07 17:09:35 by dikid00          ###   ########.fr       */
+/*   Updated: 2023/01/02 12:47:16 by mabarbas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*read_into(int fd, char *sttc)
 {
@@ -40,9 +40,9 @@ char	*read_into(int fd, char *sttc)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*sttc[256];
+	static char	*sttc[FOPEN_MAX];
 
-	if (fd < 0 || BUFFER_SIZE < 1)
+	if (fd < 0 || BUFFER_SIZE < 1 || fd > FOPEN_MAX)
 		return (0);
 	sttc[fd] = read_into(fd, sttc[fd]);
 	if (!sttc[fd])
